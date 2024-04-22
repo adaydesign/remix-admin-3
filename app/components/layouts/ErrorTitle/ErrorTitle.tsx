@@ -1,6 +1,6 @@
 import { Title, Text, Button, Container, Group, useMantineTheme } from '@mantine/core';
 import classes from './ErrorTitle.module.css';
-import { Link, useActionData } from '@remix-run/react';
+import { Link } from '@remix-run/react';
 
 interface ErrorTitleProps {
   code: string|number;

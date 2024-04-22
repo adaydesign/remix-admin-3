@@ -1,13 +1,21 @@
-# Welcome to Remix + Vite!
+# React Admin Mantine Theme and Remix
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/future/vite) for details on supported features.
+## Features
+- Framewore and Router by Remix
+- Custom theme (edit app/constants/app.theme.ts)
+- Table by MantineReactTable V.2
+
+## Install This Theme
+
+```shellscript
+npx create-remix@latest --template adaydesign/remix-admin-3
+```
 
 ## Install Packages
 
 ```shellscript
 npm i
 ```
-
 
 ## Development
 
@@ -30,14 +38,3 @@ Then run the app in production mode:
 ```sh
 npm start
 ```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`

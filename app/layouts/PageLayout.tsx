@@ -1,4 +1,5 @@
 import { Flex, Paper, useMantineTheme } from "@mantine/core"
+import { useResizeObserver, useWindowScroll } from "@mantine/hooks"
 import { BreadcrumbPanel, SubMenuPanel } from "~/components/layouts"
 
 interface PageLayoutProps {
@@ -6,24 +7,31 @@ interface PageLayoutProps {
 }
 const PageLayout = ({ children }: PageLayoutProps) => {
   const theme = useMantineTheme()
-  
+  const [ref, rect] = useResizeObserver();
+  const [scroll] = useWindowScroll();
+
   return (
-    <Flex direction="column" w="100%" bg="yellow">
+    <Flex direction="column" w="100%" ref={ref}>
       <Flex
         justify="space-between"
+        align="center"
         p={theme.spacing.xs}
+        px={theme.spacing.md}
         visibleFrom="sm"
-        bg="red"
-        style={{position: 'fixed', top: "60px", zIndex: 99}}
+        pos="fixed"
+        w="100vw"
+        maw={rect.width}
+        bg={scroll.y > 0 ? theme.colors.primaryAlpha[2] : "transparent"}
       >
         <SubMenuPanel />
         <BreadcrumbPanel />
       </Flex>
-      <Paper shadow="md" p="xl" m="md" mih="90vh" mt="56px">
+      <Paper shadow="md" p="xl" m="md" mih="85vh" mt="53px">
         {children}
       </Paper>
     </Flex>
   )
+
 }
 
 export default PageLayout

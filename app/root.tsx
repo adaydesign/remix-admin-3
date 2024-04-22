@@ -1,6 +1,8 @@
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
 import "@mantine/core/styles.css"
+import '@mantine/dates/styles.css'; 
+import 'mantine-react-table/styles.css'; 
 
 import {
   Links,
@@ -37,15 +39,28 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Prompt:wght@100;300;400;500;600;700;800&display=swap",
   },
+  {
+    rel: "apple-touch-icon",
+    sizes: "180x180",
+    href: "/apple-touch-icon.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "32x32",
+    href: "/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon-16x16.png",
+  },
+  {
+    rel: "manifest",
+    href: "/site.webmanifest",
+  },
 ]
-
-// export const handle = {
-//   breadcrumb: () => {return {
-//     title: "Home",
-//     to: "/",
-//     icon: IconHome
-//   }},
-// }
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

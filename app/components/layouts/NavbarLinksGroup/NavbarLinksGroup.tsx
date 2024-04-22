@@ -10,7 +10,7 @@ import {
 } from "@mantine/core"
 import { IconCalendarStats, IconChevronRight } from "@tabler/icons-react"
 import classes from "./NavbarLinksGroup.module.css"
-import { Link } from "@remix-run/react"
+import { Link, useLocation } from "@remix-run/react"
 
 interface LinksGroupProps {
   icon: React.FC<any>
@@ -25,25 +25,29 @@ export function LinksGroup({
   label,
   initiallyOpened,
   links,
-  to
+  to,
 }: LinksGroupProps) {
   const hasLinks = Array.isArray(links)
   const [opened, setOpened] = useState(initiallyOpened || false)
-
+  const { pathname } = useLocation()
+  
   const items = (hasLinks ? links : []).map((link) => (
-    <Link to={link.to} className={classes.link}  key={link.label}>
-      <Text>
-        {link.label}
-      </Text>
+    <Link
+      to={link.to}
+      className={pathname == link.to ? classes.link_active : classes.link}
+      key={link.label}
+    >
+      <Text>{link.label}</Text>
     </Link>
   ))
 
-  if(to) {
+  if (to) {
     return (
-      <Link to={to} className={classes.control}>
-        <UnstyledButton
-          
-        >
+      <Link
+        to={to}
+        className={pathname == to ? classes.control_active : classes.control}
+      >
+        <UnstyledButton>
           <Group justify="space-between" gap={0}>
             <Box style={{ display: "flex", alignItems: "center" }}>
               <ThemeIcon variant="light" size={30}>
@@ -51,10 +55,9 @@ export function LinksGroup({
               </ThemeIcon>
               <Box ml="md">{label}</Box>
             </Box>
-           
           </Group>
         </UnstyledButton>
-        </Link>
+      </Link>
     )
   }
 
