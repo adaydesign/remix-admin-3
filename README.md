@@ -1,7 +1,7 @@
 # React Admin Mantine Theme and Remix
 
 ## Features
-- Framewore and Router by Remix
+- Framework and Router by Remix
 - Custom theme (edit app/constants/app.theme.ts)
 - Table by MantineReactTable V.2
 
