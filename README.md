@@ -18,12 +18,6 @@
 npx create-remix@latest --template adaydesign/remix-admin-3
 ```
 
-## Install Packages
-
-```shellscript
-npm i
-```
-
 ## Development
 
 Run the Vite dev server:
